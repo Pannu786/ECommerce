@@ -7,7 +7,6 @@ const Home = ({ products, bannerData }) => {
   return (
     <>
       <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
-      {console.log(bannerData)}
       <div className='products-heading'>
         <h2>Best of Best Products here</h2>
         <p>Speaker are boom here mate</p>
@@ -22,6 +21,7 @@ const Home = ({ products, bannerData }) => {
   );
 };
 
+//* extracting data from the sanity backend server 
 export const getServerSideProps = async () => {
   const query = '*[_type == "product"]';
   const products = await client.fetch(query);
