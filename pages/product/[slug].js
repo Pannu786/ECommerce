@@ -9,12 +9,14 @@ import {
 } from 'react-icons/ai';
 
 import { Product } from '../../components';
+import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({
   product: { image, name, details, price },
   products,
 }) => {
   const [index, setIndex] = useState(0);
+  const { decQty, incQty, qty } = useStateContext();
 
   return (
     <div>
@@ -56,13 +58,13 @@ const ProductDetails = ({
           <div className='quantity'>
             <h3>Quantity: </h3>
             <p className='quantity-desc'>
-              <span className='minus' onClick=''>
+              <span className='' onClick={decQty}>
                 <AiOutlineMinus />
               </span>
-              <span className='num' onClick=''>
-                0
+              <span className='' onClick=''>
+                {qty}
               </span>
-              <span className='plus' onClick=''>
+              <span className='' onClick={incQty}>
                 <AiOutlinePlus />
               </span>
             </p>
