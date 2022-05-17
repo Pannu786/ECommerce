@@ -16,7 +16,7 @@ const ProductDetails = ({
   products,
 }) => {
   const [index, setIndex] = useState(0);
-  const { decQty, incQty, qty } = useStateContext();
+  const { decQty, incQty, qty, onAdd } = useStateContext();
 
   return (
     <div>
@@ -58,19 +58,21 @@ const ProductDetails = ({
           <div className='quantity'>
             <h3>Quantity: </h3>
             <p className='quantity-desc'>
-              <span className='' onClick={decQty}>
+              <span className='minus' onClick={decQty}>
                 <AiOutlineMinus />
               </span>
-              <span className='' onClick=''>
-                {qty}
-              </span>
-              <span className='' onClick={incQty}>
+              <span className='num'>{qty}</span>
+              <span className='plus' onClick={incQty}>
                 <AiOutlinePlus />
               </span>
             </p>
           </div>
           <div className='buttons'>
-            <button type='button' className='add-to-cart' onClick=''>
+            <button
+              type='button'
+              className='add-to-cart'
+              onClick={() => onAdd(products, qty)}
+            >
               Add to Cart
             </button>
             <button type='button' className='buy-now' onClick=''>
