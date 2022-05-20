@@ -13,6 +13,9 @@ export const StateContext = ({ children }) => {
   const [totalQuantities, setTotalQuantities] = useState(0);
   const [qty, setQty] = useState(1);
 
+  let foundProduct;
+  let index;
+
   //* FUNCTION TO ADD ITEM AND UPDATE QUANTITY TO CART
   const onAdd = (product, quantity) => {
     const checkProductInCart = cartItems.find(
@@ -39,6 +42,19 @@ export const StateContext = ({ children }) => {
       setCartItems([...cartItems, { ...product }]);
     }
     toast.success(`${qty} ${product.name} added to the cart.`);
+  };
+
+  const toggleCartItemQuantity = (id, value) => {
+    foundProduct = cartItems.find((item) => item._id === product._id);
+    index = cartItems.findIndex((product) => product._id === id);
+ 
+    if (value === 'inc') {
+
+      let newCartItems = [...cartItems,{...product, quantity: product.quantity + 1}];
+      foundProduct.quantity += 1;
+      setCartItems()
+      cartItems[index] = foundProduct;
+    }else if(value === 'dec'){
   };
 
   //* FUNCTION TO INCREMENT QUANTITY
