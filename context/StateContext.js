@@ -152,7 +152,7 @@ export const StateContext = ({ children }) => {
     const newCartItems = cartItems.filter((item) => item._id !== product._id);
 
     setTotalPrice(
-      (prevTotalPrice) =>
+      (prevTotalPrice) => 
         prevTotalPrice - foundProduct.price * foundProduct.quantity
     );
     setTotalQuantities(
