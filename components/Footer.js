@@ -5,8 +5,7 @@ const Footer = () => {
   return (
     <div className='footer-container'>
       <p>
-        2022 Pannu Headphones #no rights reserved as this is not my site haha,
-        stole it with ❤
+        2022 Pannu Headphones ❤
       </p>
 
       <p className='icons'>
